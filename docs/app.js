@@ -23547,7 +23547,7 @@ function convert (input, opts) {
   try {
     ls = JSON.parse(input)
   } catch (err) {
-    opts.messages.push(`error pasing JSON input: ${err}`)
+    opts.messages.push(`error parsing JSON input: ${err}`)
     return null
   }
 
