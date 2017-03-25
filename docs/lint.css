@@ -1,0 +1,88 @@
+/* from https://bitsofco.de/linting-html-using-css/ */
+
+/* Inline Styles */
+
+*[style] {
+    border: 5px solid red;
+}
+
+/* Faulty or Missing Link Targets */
+
+a:not([href])
+a:[href="#"],
+a:[href=""],
+a[href*="javascript:void(0)"] {
+  border: 5px solid red;
+}
+
+/* Unaccessible Images */
+
+img:not([alt]) {
+  border: 5px solid red;
+}
+
+img[alt=""] {
+  border: 5px solid red;
+}
+
+/* Missing Document Language */
+
+html:not([lang]),
+html[lang=""] {
+  border: 5px solid red;
+}
+
+/* Incorrect Character Set */
+
+meta[charset]:not([charset="UTF-8"]) {
+  border: 5px solid red;
+}
+
+meta[charset="UTF-8"]:not(:first-child) {
+  border: 5px solid red;
+}
+
+/* Unaccessible Viewport Attributes */
+
+meta[name="viewport"][content*="user-scalable=no"],
+meta[name="viewport"][content*="maximum-scale"],
+meta[name="viewport"][content*="minimum-scale"] {
+  border: 5px solid red;
+}
+
+
+/* Unlabelled Form Elements */
+
+input:not([id]),
+select:not([id]),
+textarea:not([id]) {
+  border: 5px solid red;
+}
+
+label:not([for]) {
+  border: 5px solid red;
+}
+input:not([name]),
+select:not([name]),
+textarea:not([name]) {
+  border: 5px solid red;
+}
+
+form:not([name]):not([id]) {
+  border: 5px solid red;
+}
+
+
+/* Empty Interactive Elements */
+
+button:empty,
+a:empty {
+  border: 5px solid red;
+}
+
+/* Unnecessary or Deprecated Attributes */
+
+script[type="text/javascript"],
+link[rel="stylesheet"][type="text/css"] {
+  border: 5px solid red;
+}

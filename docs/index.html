@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color"      content="#7BAFD4" />
+    <link rel="shortcut icon"     href="images/npmls2dg.png" />
+    <link href="app.css" rel="stylesheet">
+    <link href="lint.css" rel="stylesheet">
+    <title>npmls2dg web app</title>
+  </head>
+  <body
+    ondragenter="ct2cgOnDragEnter()"
+    ondragover="ct2cgOnDragOver()"
+    ondrop="ct2cgOnDrop()"
+    >
+
+    <div class="icon-top">
+      <a href="https://github.com/pmuellr/npmls2dg">
+        <img alt="logo image" width="64" src="images/npmls2dg.png">
+      </a>
+    </div>
+
+    <h1 class="title">npmls2dg - npm ls to dependency graph</h1>
+
+    <p>
+      Convert the output of <tt>npm ls --json</tt> to a dependency graph.
+      For more info, visit the GitHub repo:
+      <tt><a href="https://github.com/pmuellr/npmls2dg">https://github.com/pmuellr/npmls2dg</a></tt>
+    </p>
+
+    <p>
+      Drop a <tt>.json</tt> file on this page to have it's
+      dependency graph rendered, like the sample below.  Here's a sample you can
+      download:
+      <a href="data/npmls2dg.json" download="npmls2dg.json">
+        <tt>npmls2dg.json</tt>
+      </a>
+    </p>
+
+    <hr>
+
+    <div>
+      file:
+      <tt><b><span class="file-name"></span></b></tt>
+    </div>
+
+    <div class="render-box"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
