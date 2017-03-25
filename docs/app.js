@@ -227,6 +227,7 @@ module.exports={
 (function (__filename){
 'use strict'
 
+const alert = window.alert
 const FileReader = window.FileReader
 
 const npmls2dg = require('../../npmls2dg')
@@ -290,8 +291,20 @@ function renderSample () {
 // render a cpu profile object
 function renderGraph (fileName, npmls) {
   logger.log('renderGraph: start')
-  const svg = npmls2dg.convert(npmls, {format: 'svg'})
+  const opts = {
+    format: 'svg',
+    messages: []
+  }
+  const svg = npmls2dg.convert(npmls, opts)
   logger.log('renderGraph: done')
+
+  if (svg == null) {
+    let message = 'error processing npm ls output'
+    if (opts.messages.length === 0) opts.messages.push('not sure why!')
+    message = `${message}: ${opts.messages.join('; ')}`
+    alert(message)
+    return
+  }
 
   const fileNameDiv = document.querySelectorAll('.file-name')[0]
   fileNameDiv.innerText = fileName
