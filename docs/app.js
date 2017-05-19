@@ -23561,7 +23561,11 @@ function convert (input, opts) {
   const dot = generateGraphviz(pkgs, opts)
   if (opts.format === 'dot') return dot
 
-  const svg = Graphviz(dot)
+  const gvOpts = {
+    totalMemory: 65536 * 256 * 2 // 33,554,432
+  }
+
+  const svg = Graphviz(dot, gvOpts)
   return svg
 }
 
@@ -23577,7 +23581,7 @@ function convert (input, opts) {
 // }
 function flattenLs (ls, name, opts, pkgs) {
   const version = ls.version || 'unknown'
-  const from = ls.from.replace(/.*?@/, '')
+  const from = ls.from == null ? '???' : ls.from.replace(/.*?@/, '')
   const key = `${name}@${version}`
   let val = pkgs[key]
 
@@ -23681,7 +23685,7 @@ if (require.main === module) cli()
 },{"./lib/cli":1,"./lib/logger":2,"viz.js":150}],153:[function(require,module,exports){
 module.exports={
   "name": "npmls2dg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "converts npm ls output to a dependency graph",
   "license": "MIT",
   "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",

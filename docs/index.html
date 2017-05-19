@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color"      content="#7BAFD4" />
-    <link rel="shortcut icon"     href="images/npmls2dg.png" />
+    <link rel="shortcut icon"     href="images/favicon-32x32.png" />
     <link href="app.css" rel="stylesheet">
     <link href="lint.css" rel="stylesheet">
     <title>npmls2dg web app</title>
@@ -38,6 +38,16 @@
         <tt>npmls2dg.json</tt>
       </a>
     </p>
+
+    <p>Generate the <tt>.json</tt> file by redirecting the output of <tt>npm ls</tt>
+      into a <tt>.json</tt> file, in one of your projects' root directories.
+      Here's an example using the <tt>--production</tt> flag, which only processes
+      your <tt>dependencies</tt> and not your <tt>devDependencies</tt>.
+    </p>
+
+    <pre>
+      npm ls --json --production > deps.json
+    </pre>
 
     <hr>
 

@@ -1,6 +1,6 @@
 {
   "name": "npmls2dg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "converts npm ls output to a dependency graph",
   "license": "MIT",
   "author": "Patrick Mueller <pmuellr@apache.org> (https://github.com/pmuellr)",

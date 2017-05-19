@@ -39,7 +39,11 @@ function convert (input, opts) {
   const dot = generateGraphviz(pkgs, opts)
   if (opts.format === 'dot') return dot
 
-  const svg = Graphviz(dot)
+  const gvOpts = {
+    totalMemory: 65536 * 256 * 2 // 33,554,432
+  }
+
+  const svg = Graphviz(dot, gvOpts)
   return svg
 }
 
@@ -55,7 +59,7 @@ function convert (input, opts) {
 // }
 function flattenLs (ls, name, opts, pkgs) {
   const version = ls.version || 'unknown'
-  const from = ls.from.replace(/.*?@/, '')
+  const from = ls.from == null ? '???' : ls.from.replace(/.*?@/, '')
   const key = `${name}@${version}`
   let val = pkgs[key]
 
